@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>מכבי קדימה - חבר מועדון</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .members-table {
+            width: 90%;
+            max-width: 800px;
+            margin: 40px auto 20px;
+            border-collapse: collapse;
+            font-size: 15px;
+            background: #fff;
+        }
+        .members-table th {
+            background: #000;
+            color: #ffd400;
+            padding: 10px 14px;
+            text-align: right;
+        }
+        .members-table td {
+            padding: 9px 14px;
+            border-bottom: 1px solid #ddd;
+            text-align: right;
+        }
+        .members-table tr:hover td { background: #fffbe6; }
+        .members-title {
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 40px;
+        }
+        .clear-btn {
+            display: block;
+            margin: 10px auto 40px;
+            background: #fff;
+            border: 2px solid #000;
+            padding: 8px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .clear-btn:hover { background: #ffd400; }
+        .no-members {
+            text-align: center;
+            font-size: 16px;
+            color: #666;
+            margin: 20px 0 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <img src="pictures/logo.png" class="logo" alt="לוגו מכבי קדימה">
+    <span class="title">מכבי קדימה</span>
+</div>
+
+<div class="menu">
+    <a href="index.html">דף הבית</a> |
+    <a href="segel_players.html">סגל שחקנים</a> |
+    <a href="fixtures.html">משחקים</a> |
+    <a href="membership.html">חבר מועדון</a> |
+    <a href="gallery.html">גלריה</a> |
+    <a href="shop.html">חנות הקבוצה</a> |
+    <a href="about.html" target="_self">אודות</a>
+</div>
+
+<main>
+
+    <h1 class="hero">חבר מועדון</h1>
+
+    <p class="subtext">
+        בחרו את המסלול שמתאים לכם והצטרפו למשפחת האוהדים של מכבי קדימה
+    </p>
+
+    <div class="plans">
+        <div class="plan">
+            <div class="plan-title">מנוי בסיסי</div>
+            <div class="plan-price">99 ₪</div>
+            <div class="plan-text">
+                כניסה למשחקי הבית<br>
+                עדכונים על הקבוצה<br>
+                חברות רשמית במועדון
+            </div>
+        </div>
+        <div class="plan">
+            <div class="plan-title">מנוי זהב</div>
+            <div class="plan-price">199 ₪</div>
+            <div class="plan-text">
+                כל מה שבמנוי בסיסי<br>
+                הנחה בחנות הקבוצה<br>
+                קדימות ברכישת כרטיסים
+            </div>
+        </div>
+        <div class="plan">
+            <div class="plan-title">מנוי VIP</div>
+            <div class="plan-price">299 ₪</div>
+            <div class="plan-text">
+                כל מה שבמנוי זהב<br>
+                חולצת אוהד מתנה<br>
+                מפגש אוהדים מיוחד
+            </div>
+        </div>
+    </div>
+
+    <div class="form-title">טופס הצטרפות</div>
+
+    <div class="join-form">
+        <input type="text" id="fullName" placeholder="שם מלא">
+        <input type="number" id="phone" pattern ="[0-9]{3} - [0-9]{7}" placeholder="טלפון"> 
+        <input type="text" id="email" placeholder="אימייל">
+        <select id="planType">
+            <option value="">בחר מסלול</option>
+            <option>מנוי בסיסי</option>
+            <option>מנוי זהב</option>
+            <option>מנוי VIP</option>
+        </select>
+        <button onclick="joinClub()">הצטרף עכשיו</button>
+    </div>
+
+    <div class="members-title">נרשמים למועדון</div>
+    <div id="membersArea"></div>
+    <button class="clear-btn" onclick="clearMembers()">נקה את כל הנרשמים</button>
+
+    <script>
+        function validateEmail(email) {
+            var atIndex = email.indexOf("@");
+            var dotIndex = email.lastIndexOf(".");
+            return atIndex > 0 && dotIndex > atIndex + 1 && dotIndex < email.length - 1;
+        }
+
+        function joinClub() {
+            var name = document.getElementById("fullName").value;
+            var phone = document.getElementById("phone").value;
+            var email = document.getElementById("email").value;
+            var plan = document.getElementById("planType").value;
+
+            if (!name || !phone || !email || !plan) {
+                alert("יש למלא את כל השדות");
+                return;
+            
+            }
+            if (!validateEmail(email)) {
+                alert("כתובת האימייל אינה תקינה");
+                return;
+            }
+            if (phone.length < 9) {
+                alert("מספר הטלפון אינו תקין");
+                return;
+            }
+
+            var members = getMembers();
+            members.push({ name: name, phone: phone, email: email, plan: plan });
+            localStorage.setItem("members", JSON.stringify(members));
+
+            alert("תודה " + name + "! נרשמת למסלול " + plan);
+
+            document.getElementById("fullName").value = "";
+            document.getElementById("phone").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("planType").value = "";
+
+            showMembers();
+        }
+
+        function getMembers() {
+            var data = localStorage.getItem("members");
+            if (data) {
+                return JSON.parse(data);
+            }
+            return [];
+        }
+
+        function showMembers() {
+            var members = getMembers();
+            var area = document.getElementById("membersArea");
+
+            if (members.length === 0) {
+                area.innerHTML = '<p class="no-members">אין נרשמים עדיין</p>';
+                return;
+            }
+
+            var html = '<table class="members-table"><tr><th>#</th><th>שם</th><th>טלפון</th><th>אימייל</th><th>מסלול</th></tr>';
+            for (var i = 0; i < members.length; i++) {
+                html += '<tr>';
+                html += '<td>' + (i + 1) + '</td>';
+                html += '<td>' + members[i].name + '</td>';
+                html += '<td>' + members[i].phone + '</td>';
+                html += '<td>' + members[i].email + '</td>';
+                html += '<td>' + members[i].plan + '</td>';
+                html += '</tr>';
+            }
+            html += '</table>';
+            area.innerHTML = html;
+        }
+
+        function clearMembers() {
+            if (confirm("למחוק את כל הנרשמים?")) {
+                localStorage.removeItem("members");
+                showMembers();
+            }
+        }
+
+        showMembers();
+    </script>
+
+</main>
+<div class="quick-links">
+    <a href="segel_players.html" class="qlink">סגל שחקנים<span class="qlink-arrow">← לסגל המלא</span></a>
+    <a href="fixtures.html" class="qlink">משחקים<span class="qlink-arrow">← לוח המשחקים</span></a>
+    <a href="membership.html" class="qlink">חבר מועדון<span class="qlink-arrow">← הצטרף עכשיו</span></a>
+    <a href="gallery.html" class="qlink">גלריה<span class="qlink-arrow">← לתמונות</span></a>
+    <a href="shop.html" class="qlink">חנות הקבוצה<span class="qlink-arrow">← לחנות</span></a>
+</div>
+
+</body>
+</html>

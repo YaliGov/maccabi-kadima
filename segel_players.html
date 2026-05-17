@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>מכבי קדימה - סגל השחקנים</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="header">
+    <img src="pictures/logo.png" class="logo" alt="לוגו מכבי קדימה">
+    <span class="title">מכבי קדימה</span>
+</div>
+
+<div class="menu">
+    <a href="index.html">דף הבית</a> |
+    <a href="segel_players.html">סגל שחקנים</a> |
+    <a href="fixtures.html">משחקים</a> |
+    <a href="membership.html">חבר מועדון</a> |
+    <a href="gallery.html">גלריה</a> |
+    <a href="shop.html">חנות הקבוצה</a> |
+    <a href="about.html" target="_self">אודות</a>
+</div>
+
+<main>
+
+    <div class="hero">סגל השחקנים</div>
+
+    <div class="wrap">
+        <div id="players" class="grid"></div>
+    </div>
+
+    <script>
+        var players = [
+            {num:3,  name:"עידו שרון",          pos:"גארד",      img:"players/Ido_Sharon_3.png"},
+            {num:7,  name:"אורי בן עמי",         pos:"פורוורד",   img:"players/ori_ben_ami_7.png"},
+            {num:8,  name:"נועם כץ",             pos:"גארד",      img:"players/Noam_Katz_8.png"},
+            {num:9,  name:"דניאל לוי",           pos:"גארד",      img:"players/daniel_levi_9.png"},
+            {num:11, name:"תומר רביב",           pos:"פורוורד",   img:"players/tomer_raviv_11.png"},
+            {num:13, name:"יונתן פרידמן",        pos:"גארד",      img:"players/yonatan_fridman_13.png"},
+            {num:15, name:"אלון גבע",            pos:"פורוורד",   img:"players/Alon_geva_15.png"},
+            {num:17, name:"איתמר שגב",           pos:"סנטר",      img:"players/itamar_segev_17.png"},
+            {num:19, name:"שחר דגן",             pos:"גארד",      img:"players/shahar_dagan_19.png"},
+            {num:21, name:"מיכאל רז",            pos:"פורוורד",   img:"players/michael_raz_21.png"},
+            {num:25, name:"רועי אדרי",           pos:"גארד",      img:"players/roei_edri_25.png"},
+            {num:27, name:"נדב מזרחי",           pos:"פורוורד",   img:"players/nadav_mizrahi_27.png"},
+            {num:31, name:"גיא צור",             pos:"גארד",      img:"players/guy_tzor_31.png"},
+            {num:33, name:"אדם כהן",             pos:"סנטר",      img:"players/adam_cohen_33.png"},
+            {num:45, name:"לביא סויסה",          pos:"פורוורד",   img:"players/levie_swisa_45.png"},
+            {num:"", name:"שלו חג'בי",           pos:"מאמן הקבוצה", img:"players/shalev_hajbi_manager.png"},
+            {num:"", name:"אסף ימין",            pos:"מנהל הקבוצה", img:"players/asaf.png"},
+            {num:"", name:"יוחאי רובינשטיין",    pos:"בעלים הקבוצה", img:"players/yohai_ceo_.png"}
+            
+        ];
+
+        var html = "";
+        for (var i = 0; i < players.length; i++) {
+            var p = players[i];
+            html += '<div class="card">'
+                + '<img class="photo" src="' + p.img + '" alt="">'
+                + '<div class="bar">'
+                + '<div><div class="name">' + p.name + '</div><div class="pos">' + p.pos + '</div></div>'
+                + '<div class="num">' + p.num + '</div>'
+                + '</div></div>';
+        }
+        document.getElementById("players").innerHTML = html;
+    </script>
+
+</main>
+<div class="quick-links">
+    <a href="segel_players.html" class="qlink">סגל שחקנים<span class="qlink-arrow">← לסגל המלא</span></a>
+    <a href="fixtures.html" class="qlink">משחקים<span class="qlink-arrow">← לוח המשחקים</span></a>
+    <a href="membership.html" class="qlink">חבר מועדון<span class="qlink-arrow">← הצטרף עכשיו</span></a>
+    <a href="gallery.html" class="qlink">גלריה<span class="qlink-arrow">← לתמונות</span></a>
+    <a href="shop.html" class="qlink">חנות הקבוצה<span class="qlink-arrow">← לחנות</span></a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>מכבי קדימה - משחקים</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .fixtures-table {
+            width: 90%;
+            max-width: 900px;
+            margin: 30px auto 50px;
+            border-collapse: collapse;
+            font-size: 16px;
+            background: #fff;
+        }
+        .fixtures-table th {
+            background: #000;
+            color: #ffd400;
+            padding: 12px 16px;
+            text-align: right;
+            font-size: 17px;
+        }
+        .fixtures-table td {
+            padding: 11px 16px;
+            border-bottom: 2px solid #ffd400;
+            text-align: right;
+        }
+        .fixtures-table tr:hover td { background: #fffbe6; }
+        .badge-home { background:#000; color:#ffd400; padding:3px 10px; font-weight:bold; font-size:13px; }
+        .badge-away { background:#ffd400; color:#000; padding:3px 10px; font-weight:bold; font-size:13px; border:1px solid #000; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <img src="pictures/logo.png" class="logo" alt="לוגו מכבי קדימה">
+    <span class="title">מכבי קדימה</span>
+</div>
+
+<div class="menu">
+    <a href="index.html">דף הבית</a> |
+    <a href="segel_players.html">סגל שחקנים</a> |
+    <a href="fixtures.html">משחקים</a> |
+    <a href="membership.html">חבר מועדון</a> |
+    <a href="gallery.html">גלריה</a> |
+    <a href="shop.html">חנות הקבוצה</a> |
+    <a href="about.html" target="_self">אודות</a>
+</div>
+
+<main>
+
+    <h1 class="hero">לוח משחקים</h1>
+
+    <p class="subtext">
+        עקבו אחרי משחקי מכבי קדימה בליגה הלאומית.<br>
+        התעדכנו בכל המפגשים הקרובים של הקבוצה.
+    </p>
+
+    <h2 style="text-align:center; margin-top:30px; font-size:22px;">ליגה לאומית — עונת 2025/26</h2>
+
+    <table class="fixtures-table">
+        <tr>
+            <th>מחזור</th>
+            <th>יריב</th>
+            <th>תאריך</th>
+            <th>שעה</th>
+            <th>מיקום</th>
+            <th>בית/חוץ</th>
+            <th>סטטוס</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>הפועל אילת</td>
+            <td>12.02.2026</td>
+            <td>19:30</td>
+            <td>אולם קדימה</td>
+            <td><span class="badge-home">בית</span></td>
+            <td>משחק קרוב</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>מכבי רחובות</td>
+            <td>18.02.2026</td>
+            <td>20:00</td>
+            <td>אולם רחובות</td>
+            <td><span class="badge-away">חוץ</span></td>
+            <td>משחק קרוב</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>עירוני נהריה</td>
+            <td>24.02.2026</td>
+            <td>18:45</td>
+            <td>אולם קדימה</td>
+            <td><span class="badge-home">בית</span></td>
+            <td>משחק מרכזי</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>אליצור אשקלון</td>
+            <td>03.03.2026</td>
+            <td>20:15</td>
+            <td>אולם אשקלון</td>
+            <td><span class="badge-away">חוץ</span></td>
+            <td>משחק חוץ</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>הפועל מגדל העמק</td>
+            <td>09.03.2026</td>
+            <td>19:00</td>
+            <td>אולם קדימה</td>
+            <td><span class="badge-home">בית</span></td>
+            <td>כרטיסים פתוחים</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>מכבי פתח תקווה</td>
+            <td>16.03.2026</td>
+            <td>21:00</td>
+            <td>אולם פתח תקווה</td>
+            <td><span class="badge-away">חוץ</span></td>
+            <td>צפוי משחק קשה</td>
+        </tr>
+    </table>
+
+</main>
+<div class="quick-links">
+    <a href="segel_players.html" class="qlink">סגל שחקנים<span class="qlink-arrow">← לסגל המלא</span></a>
+    <a href="fixtures.html" class="qlink">משחקים<span class="qlink-arrow">← לוח המשחקים</span></a>
+    <a href="membership.html" class="qlink">חבר מועדון<span class="qlink-arrow">← הצטרף עכשיו</span></a>
+    <a href="gallery.html" class="qlink">גלריה<span class="qlink-arrow">← לתמונות</span></a>
+    <a href="shop.html" class="qlink">חנות הקבוצה<span class="qlink-arrow">← לחנות</span></a>
+</div>
+
+</body>
+</html>

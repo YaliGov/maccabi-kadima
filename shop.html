@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>מכבי קדימה - חנות הקבוצה</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="header">
+    <img src="pictures/logo.png" class="logo" alt="לוגו מכבי קדימה">
+    <span class="title">מכבי קדימה</span>
+</div>
+
+<div class="menu">
+    <a href="index.html">דף הבית</a> |
+    <a href="segel_players.html">סגל שחקנים</a> |
+    <a href="fixtures.html">משחקים</a> |
+    <a href="membership.html">חבר מועדון</a> |
+    <a href="gallery.html">גלריה</a> |
+    <a href="shop.html">חנות הקבוצה</a> |
+    <a href="about.html" target="_self">אודות</a>
+</div>
+
+<main>
+
+    <h1 class="hero">חנות הקבוצה</h1>
+    <p class="subtext">מוצרי הקבוצה הרשמיים של מכבי קדימה</p>
+
+    <div class="products" id="products"></div>
+
+    <div class="cart-bar">
+         פריטים בסל: <span id="cart-count">0</span>
+        &nbsp;|&nbsp; סה"כ: <span id="cart-total">0</span> ₪
+        &nbsp;&nbsp;
+        <button class="cart-toggle" onclick="toggleCart()">צפה בסל</button>
+    </div>
+
+    <div class="cart-summary" id="cart-summary">
+        <h3>הסל שלי</h3>
+        <div id="cart-items"></div>
+        <div class="cart-total" id="cart-total-summary"></div>
+        <button class="cart-clear" onclick="clearCart()">רוקן סל</button>
+    </div>
+
+    <script>
+        var items = [
+            {name: "חולצת בית",    price: 149, img: "pictures/shop_home_shirt.png"},
+            {name: "חולצת חוץ",    price: 149, img: "pictures/shop_away_shirt.png"},
+            {name: "כובע מצחייה",  price:  79, img: "pictures/shop_cap.png"},
+            {name: "צעיף קבוצה",   price:  59, img: "pictures/shop_scarf.png"},
+            {name: "גרביים",       price:  39, img: "pictures/shop_socks.png"},
+            {name: "תיק ספורט",    price: 119, img: "pictures/shop_bag.png"},
+            {name: "כדור הקבוצה",    price: 69, img: "pictures/shop_ball.png"},
+            {name: "בקבוק הקבוצה",    price: 49, img: "pictures/shop_bottle.png"},
+            {name: "דגל הקבוצה",    price: 59, img: "pictures/shop_flag.png"},
+            {name: "קפוצ'ון הקבוצה",    price: 139, img: "pictures/shop_hoodie.png"},
+            {name: "מחברת הקבוצה",    price: 39, img: "pictures/shop_notebook.png"},
+            {name: "מגבת הקבוצה",    price: 49, img: "pictures/shop_towel.png"}
+        ];
+
+        var cart = [];
+
+        var html = "";
+        for (var i = 0; i < items.length; i++) {
+            var item = items[i];
+            html += '<div class="product">'
+                + '<img src="' + item.img + '" alt="' + item.name + '">'
+                + '<div class="product-name">' + item.name + '</div>'
+                + '<div class="product-price">' + item.price + ' ₪</div>'
+                + '<button onclick="addToCart(' + i + ')">הוסף לסל</button>'
+                + '</div>';
+        }
+        document.getElementById("products").innerHTML = html;
+
+        function addToCart(index) {
+            cart.push(items[index]);
+            updateCart();
+        }
+
+        function updateCart() {
+            var count = cart.length;
+            var total = 0;
+            for (var i = 0; i < cart.length; i++) {
+                total += cart[i].price;
+            }
+            document.getElementById("cart-count").innerText = count;
+            document.getElementById("cart-total").innerText = total;
+
+            var itemsHtml = "";
+            for (var i = 0; i < cart.length; i++) {
+                itemsHtml += '<div class="cart-item"><span>' + cart[i].name + '</span><span>' + cart[i].price + ' ₪</span></div>';
+            }
+            document.getElementById("cart-items").innerHTML = itemsHtml || '<p>הסל ריק</p>';
+            document.getElementById("cart-total-summary").innerText = 'סה"כ לתשלום: ' + total + ' ₪';
+        }
+
+        function toggleCart() {
+            var summary = document.getElementById("cart-summary");
+            summary.style.display = summary.style.display === "block" ? "none" : "block";
+        }
+
+        function clearCart() {
+            cart = [];
+            updateCart();
+            document.getElementById("cart-summary").style.display = "none";
+        }
+    </script>
+
+</main>
+
+<div class="quick-links">
+    <a href="segel_players.html" class="qlink">סגל שחקנים<span class="qlink-arrow">← לסגל המלא</span></a>
+    <a href="fixtures.html" class="qlink">משחקים<span class="qlink-arrow">← לוח המשחקים</span></a>
+    <a href="membership.html" class="qlink">חבר מועדון<span class="qlink-arrow">← הצטרף עכשיו</span></a>
+    <a href="gallery.html" class="qlink">גלריה<span class="qlink-arrow">← לתמונות</span></a>
+    <a href="shop.html" class="qlink">חנות הקבוצה<span class="qlink-arrow">← לחנות</span></a>
+</div>
+
+</body>
+</html>

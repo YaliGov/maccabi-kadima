@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>מכבי קדימה - גלריה</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="header">
+    <img src="pictures/logo.png" class="logo" alt="לוגו מכבי קדימה">
+    <span class="title">מכבי קדימה</span>
+</div>
+
+<div class="menu">
+    <a href="index.html">דף הבית</a> |
+    <a href="segel_players.html">סגל שחקנים</a> |
+    <a href="fixtures.html">משחקים</a> |
+    <a href="membership.html">חבר מועדון</a> |
+    <a href="gallery.html">גלריה</a> |
+    <a href="shop.html">חנות הקבוצה</a> |
+    <a href="about.html" target="_self">אודות</a>
+</div>
+
+<main>
+
+    <h1 class="hero">גלריית הקבוצה</h1>
+
+    <div class="gallery">
+        <img src="pictures/gallery1.jpg" alt="תמונה 1" onclick="openLightbox(0)">
+        <img src="pictures/gallery2.jpg" alt="תמונה 2" onclick="openLightbox(1)">
+        <img src="pictures/gallery3.jpg" alt="תמונה 3" onclick="openLightbox(2)">
+        <img src="pictures/gallery4.jpg" alt="תמונה 4" onclick="openLightbox(3)">
+        <img src="pictures/galleryy5.jpg" alt="תמונה 5" onclick="openLightbox(4)">
+        <img src="pictures/gallery6.jpg" alt="תמונה 6" onclick="openLightbox(5)">
+        <img src="pictures/gallery7.jpg" alt="תמונה 7" onclick="openLightbox(6)">
+        <img src="pictures/gallery8.jpg" alt="תמונה 8" onclick="openLightbox(7)">
+        <img src="pictures/gallery9.jpg" alt="תמונה 9" onclick="openLightbox(8)">
+    </div>
+
+</main>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <span class="lightbox-close" onclick="closeLightbox()">×</span>
+    <span class="lightbox-prev" onclick="changeImage(-1)">&#10094;</span>
+    <img id="lightbox-img" src="" alt="">
+    <span class="lightbox-next" onclick="changeImage(1)">&#10095;</span>
+</div>
+
+<div class="quick-links">
+    <a href="segel_players.html" class="qlink">סגל שחקנים<span class="qlink-arrow">← לסגל המלא</span></a>
+    <a href="fixtures.html" class="qlink">משחקים<span class="qlink-arrow">← לוח המשחקים</span></a>
+    <a href="membership.html" class="qlink">חבר מועדון<span class="qlink-arrow">← הצטרף עכשיו</span></a>
+    <a href="gallery.html" class="qlink">גלריה<span class="qlink-arrow">← לתמונות</span></a>
+    <a href="shop.html" class="qlink">חנות הקבוצה<span class="qlink-arrow">← לחנות</span></a>
+</div>
+
+<script>
+    var images = [
+        "pictures/gallery1.jpg",
+        "pictures/gallery2.jpg",
+        "pictures/gallery3.jpg",
+        "pictures/gallery4.jpg",
+        "pictures/galleryy5.jpg",
+        "pictures/gallery6.jpg",
+        "pictures/gallery7.jpg",
+        "pictures/gallery8.jpg",
+        "pictures/gallery9.jpg"
+    ];
+
+    var current = 0;
+
+    function openLightbox(index) {
+        current = index;
+        document.getElementById("lightbox-img").src = images[current];
+        document.getElementById("lightbox").classList.add("active");
+    }
+
+    function closeLightbox(event) {
+        if (!event || event.target === document.getElementById("lightbox")) {
+            document.getElementById("lightbox").classList.remove("active");
+        }
+    }
+
+    function changeImage(direction) {
+        current = (current + direction + images.length) % images.length;
+        document.getElementById("lightbox-img").src = images[current];
+        event.stopPropagation();
+    }
+
+    document.addEventListener("keydown", function(e) {
+        if (e.key === "ArrowRight") changeImage(-1);
+        if (e.key === "ArrowLeft") changeImage(1);
+        if (e.key === "Escape") closeLightbox();
+    });
+</script>
+
+</body>
+</html>

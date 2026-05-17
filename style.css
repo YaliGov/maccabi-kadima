@@ -1,0 +1,126 @@
+/* ===== GLOBAL ===== */
+body { margin:0; font-family:Arial; background:#ffd400; min-height:100vh; display:flex; flex-direction:column; }
+main { flex:1; }
+
+/* ===== HEADER & MENU ===== */
+.header { background:#000; text-align:center; padding:14px 0; margin:0; }
+.logo { width:75px; vertical-align:middle; }
+.title { color:#ffd400; font-size:42px; font-weight:bold; vertical-align:middle; margin-right:10px; display:inline-block; }
+.menu { background:#ffd400; text-align:center; padding:11px 0; font-size:17px; margin:0; }
+.menu a { color:#000; text-decoration:none; font-weight:bold; margin:0 8px; }
+.menu a:hover { text-decoration:underline; }
+
+/* ===== TYPOGRAPHY ===== */
+.hero { text-align:center; font-size:34px; font-weight:bold; margin-top:30px; color:#000; }
+.welcome { text-align:center; margin:28px 0 10px; font-size:34px; font-weight:bold; color:#000; }
+.landing-text { text-align:center; width:70%; margin:0 auto; font-size:20px; font-weight:bold; line-height:1.7; color:#000; }
+.subtext { text-align:center; font-size:19px; font-weight:bold; width:75%; margin:12px auto 0; line-height:1.7; }
+
+/* ===== MATCHES ===== */
+.matches { text-align:center; margin:30px 0 40px; }
+.match { display:inline-block; vertical-align:top; width:260px; background:#fff; border:3px solid #000; margin:14px; padding:18px; font-size:16px; line-height:1.8; }
+.match-title { font-size:22px; font-weight:bold; margin:0 0 10px; }
+.teams { font-size:18px; font-weight:bold; margin-bottom:12px; }
+.status { font-weight:bold; margin-top:10px; }
+
+/* ===== GALLERY ===== */
+.gallery { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; width:800px; margin:40px auto; }
+.gallery img { width:100%; height:200px; object-fit:cover; border:3px solid #000; transition:transform 0.3s; }
+.gallery img:hover { transform:scale(1.05); }
+
+/* ===== MEMBERSHIP ===== */
+.plans { text-align:center; margin-top:30px; }
+.plan { display:inline-block; width:250px; background:#fff; border:3px solid #000; margin:15px; vertical-align:top; text-align:center; }
+.plan-title { background:#000; color:#ffd400; font-size:24px; font-weight:bold; padding:12px 0; }
+.plan-price { font-size:30px; font-weight:bold; margin:15px 0; }
+.plan-text { font-size:18px; line-height:1.8; padding:0 15px 20px; }
+.form-title { text-align:center; font-size:28px; font-weight:bold; margin-top:40px; }
+.join-form { width:420px; margin:20px auto 50px; background:#fff; border:3px solid #000; padding:20px; text-align:center; }
+.join-form input, .join-form select { width:90%; padding:10px; margin:8px 0; font-size:16px; border:1px solid #000; }
+.join-form button { background:#000; color:#ffd400; border:none; padding:10px 25px; font-size:18px; font-weight:bold; cursor:pointer; margin-top:8px; }
+
+/* ===== PLAYERS ===== */
+.wrap { max-width:1200px; margin:0 auto; padding:20px 14px 40px; }
+.grid { display:flex; flex-wrap:wrap; gap:22px; justify-content:center; }
+.card { width:260px; background:#fff; border:4px solid #0b1730; box-shadow:0 10px 22px rgba(0,0,0,0.25); }
+.photo { width:100%; height:300px; object-fit:cover; display:block; background:#eee; }
+.bar { background:#ffd400; display:flex; align-items:center; justify-content:space-between; padding:10px 12px; gap:10px; }
+.name { font-weight:bold; font-size:18px; color:#000; }
+.pos { font-size:13px; color:#222; margin-top:2px; }
+.num { font-size:34px; font-weight:bold; color:#000; min-width:44px; text-align:left; }
+
+/* ===== SHOP ===== */
+.products { display:flex; flex-wrap:wrap; justify-content:center; gap:24px; margin:30px auto 50px; max-width:1100px; padding:0 16px; }
+.product { background:#fff; border:3px solid #000; width:220px; text-align:center; padding-bottom:16px; }
+.product img { width:100%; height:200px; object-fit:cover; display:block; background:#eee; }
+.product-name { font-size:18px; font-weight:bold; margin:12px 0 6px; }
+.product-price { font-size:20px; font-weight:bold; margin-bottom:12px; }
+.product button { background:#000; color:#ffd400; border:none; padding:9px 22px; font-size:15px; font-weight:bold; cursor:pointer; }
+.product button:hover { background:#333; }
+
+/* ===== ABOUT ===== */
+.about-section { max-width:800px; margin:30px auto; background:#000; border:3px solid #000; padding:30px 40px; color:#ffd400; }
+.about-section h2 { font-size:24px; font-weight:bold; border-bottom:3px solid #ffd400; padding-bottom:8px; margin-bottom:16px; color:#ffd400; }
+.about-section p { font-size:17px; line-height:1.9; margin:0 0 12px; color:#ffd400; }
+.stats { display:flex; justify-content:space-around; flex-wrap:wrap; gap:16px; margin:0 auto 20px; max-width:800px; text-align:center; padding-top:30px; }
+.stat { background:#000; color:#ffd400; padding:20px 30px; min-width:150px; }
+.stat-num { font-size:36px; font-weight:bold; }
+.stat-label { font-size:15px; margin-top:4px; }
+.values { display:flex; justify-content:center; flex-wrap:wrap; gap:16px; max-width:800px; margin:0 auto; padding:0 0 40px; }
+.value { background:#000; border:3px solid #ffd400; width:170px; text-align:center; padding:20px 14px; }
+.value-icon { font-size:32px; margin-bottom:8px; }
+.value-title { font-size:17px; font-weight:bold; margin-bottom:6px; color:#ffd400; }
+.value-text { font-size:14px; line-height:1.6; color:#ffd400; }
+
+/* ===== INDEX ===== */
+.home-hero { background:#000; color:#ffd400; text-align:center; padding:70px 20px 60px; margin:0; }
+.home-hero h1 { font-size:62px; font-weight:900; margin:0 0 12px; line-height:1.1; }
+.home-hero p { font-size:20px; color:#ccc; margin:0 auto; max-width:500px; line-height:1.6; }
+.cta-btns { margin-top:32px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+.btn-primary { background:#ffd400; color:#000; border:none; padding:14px 32px; font-size:17px; font-weight:700; text-decoration:none; display:inline-block; cursor:pointer; }
+.btn-primary:hover { background:#000000;color :#ffd400;border:none; }
+.btn-secondary { background:transparent; color:#ffd400; border:2px solid #ffd400; padding:14px 32px; font-size:17px; font-weight:700; text-decoration:none; display:inline-block; cursor:pointer; }
+.btn-secondary:hover { background:#ffd400; color:#000; }
+.stats-bar { background:#ffd400; border-top:3px solid #000; display:flex; justify-content:center; flex-wrap:wrap; margin:0; }
+.stats-bar .stat-item { text-align:center; padding:18px 40px; border-left:2px solid #000; }
+.stats-bar .stat-item:last-child { border-left:none; }
+.stat-item .n { font-size:30px; font-weight:900; }
+.stat-item .l { font-size:13px; font-weight:700; color:#333; }
+.section-title { text-align:center; font-size:28px; font-weight:900; margin:50px 0 24px; color:#000; }
+.section-title::after { content:''; display:block; width:60px; height:4px; background:#000; margin:10px auto 0; }
+.next-match-wrap { max-width:700px; margin:0 auto 50px; background:#000; color:#ffd400; border:3px solid #000; display:flex; align-items:center; justify-content:space-between; padding:30px 40px; flex-wrap:wrap; gap:20px; }
+.next-match-wrap .label { font-size:13px; font-weight:700; color:#aaa; margin-bottom:6px; }
+.next-match-wrap .teams-big { font-size:26px; font-weight:900; line-height:1.3; }
+.next-match-wrap .meta { font-size:15px; color:#ccc; margin-top:8px; line-height:1.8; }
+.next-match-wrap .ticket-btn { background:#ffd400; color:#000; border:none; padding:14px 28px; font-size:16px; font-weight:700; text-decoration:none; cursor:pointer; }
+.next-match-wrap .ticket-btn:hover { background:#e6bf00; }
+.quick-links { display:flex; border-top:3px solid #000; margin-top:0; }
+.qlink { flex:1; background:#000; color:#ffd400; text-align:center; padding:28px 10px; text-decoration:none; font-size:16px; font-weight:700; border-left:2px solid #222; transition:background 0.2s, color 0.2s; }
+.qlink:last-child { border-left:none; }
+.qlink:hover { background:#ffd400; color:#000; }
+.qlink-arrow { display:block; font-size:11px; font-weight:400; color:#666; margin-top:5px; }
+.qlink:hover .qlink-arrow { color:#000; }
+
+/* ===== LIGHTBOX ===== */
+.lightbox { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:1000; justify-content:center; align-items:center; }
+.lightbox.active { display:flex; }
+.lightbox img { max-width:85%; max-height:85vh; border:4px solid #ffd400; }
+.lightbox-close { position:absolute; top:20px; left:30px; color:#ffd400; font-size:40px; cursor:pointer; font-weight:bold; line-height:1; }
+.lightbox-close:hover { color:#fff; }
+.lightbox-prev, .lightbox-next { position:absolute; top:50%; transform:translateY(-50%); color:#ffd400; font-size:50px; cursor:pointer; font-weight:bold; padding:0 20px; user-select:none; }
+.lightbox-prev { right:20px; }
+.lightbox-next { left:20px; }
+.lightbox-prev:hover, .lightbox-next:hover { color:#fff; }
+.gallery img { cursor:pointer; }
+
+/* ===== CART ===== */
+.cart-bar { background:#ffd400; color:#000; text-align:center; padding:12px; font-size:17px; font-weight:bold; margin:0; border-top:3px solid #000; border-bottom:3px solid #000; }
+.cart-bar span { font-size:22px; font-weight:900; margin:0 6px; }
+.cart-summary { max-width:500px; margin:0 auto 40px; background:#fff; border:3px solid #000; padding:20px; text-align:center; display:none; }
+.cart-summary h3 { margin:0 0 14px; font-size:20px; }
+.cart-item { display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee; font-size:15px; }
+.cart-total { font-size:18px; font-weight:bold; margin-top:14px; }
+.cart-clear { background:#000; color:#ffd400; border:none; padding:8px 20px; font-size:14px; font-weight:bold; cursor:pointer; margin-top:12px; }
+.cart-clear:hover { background:#333; }
+.cart-toggle { background:#ffd400; color:#000; border:2px solid #000; padding:8px 20px; font-size:15px; font-weight:bold; cursor:pointer; margin-right:14px; }
+.cart-toggle:hover { background:#e6bf00; }
